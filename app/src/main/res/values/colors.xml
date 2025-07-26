@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg">#F0F6FF</color>
+    <color name="white2">#999797</color>
+    <color name="mBlue">#1E88E5</color>
+    <color name="shadowmBlue">#1A1E88E5</color>
+    <color name="blackshadow">#AAAAAA</color>
+    <color name="red">#FF1818</color>
+    <color name="grey">#B5B5B5</color>
+    <color name="grey1">#F7F7F7</color>
+    <color name="gnt_ad_green">#3A6728</color>
+    <color name="drawer_color">#6671F6</color>
+    <color name="greystroke">#DBDBDB</color>
+    <color name="your_actionbar_color">#F0F6FF</color>
+    <color name="your_navbar_color">#F0F6FF</color>
+    <color name="your_statusbar_color">#F0F6FF</color>
+    <color name="colorUncheckedThumb">#BDBDBD</color>
+    <color name="colorUncheckedTrack">#E0E0E0</color>
+
+</resources>

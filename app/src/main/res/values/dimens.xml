@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dotsize">@dimen/_8sdp</dimen>
+    <dimen name="dotmargin">@dimen/_2sdp</dimen>
+    <dimen name="banner_height">57dp</dimen>
+    <dimen name="close_button_size">@dimen/_48sdp</dimen>
+    <dimen name="touch_area_padding">@dimen/_58sdp</dimen>
+    <dimen name="close_layout">@dimen/_40sdp</dimen>
+    <dimen name="close_layout_trigger">@dimen/_80sdp</dimen>
+
+    <dimen name="cardCornerRadius">12dp</dimen>
+    <dimen name="cardElevation">5dp</dimen>
+    <dimen name="cardElevationNormal">5dp</dimen>
+
+    <dimen name="placeholder_text_height">8dp</dimen>
+    <item type="dimen" format="float" name="gnt_medium_template_bottom_weight">0.4</item>
+
+    <item type="dimen" format="float" name="gnt_text_row_weight">0.25</item>
+
+    <item type="dimen" format="float" name="gnt_media_view_weight">1.0</item>
+
+    <item type="dimen" format="float" name="gnt_medium_template_top_weight">0.2</item>
+
+    <dimen name="gnt_default_margin">@dimen/_8sdp</dimen>
+
+    <dimen name="gnt_text_size_small">@dimen/_8sdp</dimen>
+
+    <dimen name="gnt_text_size_large">@dimen/_12sdp</dimen>
+
+    <dimen name="gnt_ad_indicator_width">@dimen/_20sdp</dimen>
+
+    <dimen name="gnt_ad_indicator_height">@dimen/_20sdp</dimen>
+
+    <dimen name="gnt_ad_indicator_bar_height">@dimen/_22sdp</dimen>
+
+    <dimen name="gnt_ad_indicator_top_margin">0dp</dimen>
+
+    <dimen name="gnt_ad_indicator_bottom_margin">@dimen/_8sdp</dimen>
+
+    <dimen name="gnt_ad_indicator_text_size">@dimen/_8sdp</dimen>
+
+    <dimen name="gnt_small_cta_button_height">@dimen/_22sdp</dimen>
+
+    <dimen name="gnt_medium_cta_button_height">@dimen/_40sdp</dimen>
+
+    <dimen name="gnt_no_margin">0dp</dimen>
+    <dimen name="gnt_no_size">0dp</dimen>
+    <dimen name="viewpager_page_margin">@dimen/_12sdp</dimen>
+    <dimen name="viewpager_page_offset">@dimen/_30sdp</dimen>
+    <dimen name="_220sdp">220dp</dimen>
+    <dimen name="_100sdp">100dp</dimen>
+    <dimen name="_80sdp">80dp</dimen>
+
+</resources>

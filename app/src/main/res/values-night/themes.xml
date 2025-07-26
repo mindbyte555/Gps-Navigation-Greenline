@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Gpstest" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="backgroundColor">@color/black</item>
+        <item name="Heading1TextColor">@color/white</item>
+        <item name="primarycolor">@color/white</item>
+
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+</resources>

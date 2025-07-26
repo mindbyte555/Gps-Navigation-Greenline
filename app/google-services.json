@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578225771798",
+    "project_id": "gps-map-navigation-c9277",
+    "storage_bucket": "gps-map-navigation-c9277.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578225771798:android:67b5c95908e9dcf139ec37",
+        "android_client_info": {
+          "package_name": "com.voicenavigation.gpslocation.routefinder.mapdirection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTNKqxW7q1xzFP_63GXqD8KSDJHBBxUqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

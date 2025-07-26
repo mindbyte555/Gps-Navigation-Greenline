@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mapbox_access_token" translatable="false">sk.eyJ1IjoibWluZC1ieXRlIiwiYSI6ImNtNnAwcnh0NzE4NG0yaXNob3ZubzMxOGwifQ.Blz73LlYJNxScJv_48VkxA</string>
+    <string name="app_name">GPS Mappe Navigazione Vocale</string>
+    <string name="nav_open">Apri</string>
+    <string name="nav_close">Chiudi</string>
+    <string name="languages">Lingue</string>
+    <string name="rate_us">Valutaci</string>
+    <string name="share_app">Condividi</string>
+    <string name="privacy_policy">Politica sulla privacy</string>
+    <string name="theme_switch">Cambia tema</string>
+    <string name="next">Avanti</string>
+    <string name="hello_blank_fragment">Ciao, frammento vuoto</string>
+    <string name="bank">Bancomat</string>
+    <string name="petrol_pump">Benzina</string>
+    <string name="gym">Palestra</string>
+    <string name="airport">Aeroporto</string>
+    <string name="hospital">Ospedale</string>
+    <string name="coffee">Caffè</string>
+    <string name="pharmacy">Farmacia</string>
+    <string name="hotels">Hotel</string>
+    <string name="others">Altri</string>
+    <string name="all_street_clear_view_easily">Tutte le strade chiaramente visibili</string>
+    <string name="explore_all_places_nearby">Esplora tutti i luoghi nelle vicinanze</string>
+    <string name="mosque">Moschea</string>
+    <string name="supermarket">Supermercato</string>
+    <string name="park">Parco</string>
+    <string name="gallery">Galleria</string>
+    <string name="food">Cibo</string>
+    <string name="upgrade_to">Aggiorna a</string>
+    <string name="bus_stop">Fermata autobus</string>
+    <string name="police">Polizia</string>
+    <string name="hi_where_to_go">Ciao, dove vuoi andare?</string>
+    <string name="my_location">La mia posizione</string>
+    <string name="continue_txt">Continua</string>
+    <string name="apply_language">Applica lingua</string>
+    <string name="once_you_subscribe_your_plan_will_automatically_renew_unless_you_choose_to_cancel">Una volta iscritto, il tuo piano si rinnoverà automaticamente a meno che tu non scelga di annullarlo.</string>
+    <string name="ads_free_experience">Esperienza senza pubblicità</string>
+    <string name="ai_assistance">Assistenza con l’IA</string>
+
+    <string name="get_direction">Ottieni indicazioni qui</string>
+    <string name="weathergrant">Attiva la posizione per rimanere aggiornato sulle condizioni meteorologiche locali</string>
+    <string name="gpsweather">Attiva il GPS per rimanere aggiornato sulle condizioni meteorologiche locali.</string>
+    <string name="sunrise">Alba</string>
+    <string name="sunset">Tramonto</string>
+    <string name="pressure">Pressione</string>
+    <string name="humidity">Umidità</string>
+    <string name="wind_speed">Velocità del vento</string>
+    <string name="visibility">Visibilità</string>
+    <string name="weather">Meteo</string>
+
+    <string name="allow_location_permission_to_access_your_location_and_get_precise_map_details">Consenti il permesso di posizione per accedere alla tua posizione e ottenere dettagli precisi sulla mappa.</string>
+    <string name="location_permission">Permesso di posizione</string>
+    <string name="grant_permission">Concedi permesso</string>
+    <string name="enable_gps">Abilita GPS</string>
+    <string name="enable_gps_to_access_your_location_and_get_precise_map_details">Abilita il GPS per accedere alla tua posizione e ottenere dettagli precisi sulla mappa.</string>
+    <string name="enable">ABILITA</string>
+    <string name="route_finder">Trova Percorso</string>
+    <string name="navigate">Naviga</string>
+    <string name="current_location">Posizione attuale</string>
+    <string name="destination">Destinazione</string>
+    <string name="start_navigate">Inizia navigazione</string>
+    <string name="nearby_places">Luoghi vicini</string>
+    <string name="gps_navigation">Navigazione GPS</string>
+    <string name="allow_location_permission_to_find_nearby_places_and_receive_accurate_location_based_recommendations">Consenti il permesso di posizione per trovare luoghi vicini e ricevere consigli accurati basati sulla posizione.</string>
+    <string name="enable_gps_to_find_nearby_places_and_get_accurate_location_based_recommendations">Abilita il GPS per trovare luoghi vicini e ottenere consigli accurati basati sulla posizione.</string>
+    <string name="satellite_view">Vista satellitare</string>
+    <string name="allow_location_permission_to_access_map_and_explore_locations_in_real_time">Consenti il permesso di posizione per accedere alla mappa ed esplorare le località in tempo reale.</string>
+    <string name="enable_gps_to_access_map_and_explore_locations_in_real_time">Abilita il GPS per accedere alla mappa ed esplorare le località in tempo reale.</string>
+    <string name="select_language">Seleziona lingua</string>
+    <string name="done">Fatto</string>
+    <string name="navigate_fast_arrive_safe">Naviga velocemente, arriva in sicurezza</string>
+    <string name="find_places_near_you_instantly">Trova luoghi vicino a te all\'istante</string>
+    <string name="main_features">Funzionalità principali</string>
+    <string name="other_features">Altre funzionalità</string>
+    <string name="street_view">Vista stradale</string>
+    <string name="satellite_map">Mappa satellitare</string>
+    <string name="compass">Bussola</string>
+    <string name="voice_map">Mappa vocale</string>
+    <string name="seven_wonders">Sette Meraviglie</string>
+    <string name="step_into_the_streets">Cammina per le strade</string>
+    <string name="explore_every_corner_navigate_with_real_life_street_views">Esplora ogni angolo – Naviga con viste stradali reali!</string>
+    <string name="smart_route_finder">Trova Percorso Intelligente</string>
+    <string name="navigate_smarter_arrive_faster_your_path_perfectly_planned">Naviga in modo più intelligente, arriva più velocemente – Il tuo percorso, perfettamente pianificato!</string>
+    <string name="explore_from_above">Esplora dall\'alto</string>
+    <string name="see_the_world_in_detail_navigate_with_satellite_precision">Guarda il mondo nei dettagli – Naviga con precisione satellitare!</string>
+    <string name="search">Cerca</string>
+    <string name="comming_soon">Prossimamente</string>
+    <string name="cancel_navigation">Annulla navigazione</string>
+    <string name="alert">Attenzione!</string>
+    <string name="this_will_stop_your_navigation">Questo interromperà la tua navigazione</string>
+    <string name="no">No</string>
+    <string name="yes">Sì</string>
+    <string name="exit_app">Uscire dall\'app?</string>
+    <string name="are_you_sure_you_want_to_exit_our_app">Sei sicuro di voler uscire dalla nostra app?</string>
+    <string name="no_wait">No! Aspetta</string>
+    <string name="allow_location_permission_to_use_voice_search_to_find_your_destination">Consenti il permesso di posizione per usare la ricerca vocale e trovare la tua destinazione.</string>
+    <string name="voice_search">Ricerca vocale</string>
+    <string name="enable_gps_for_accurate_navigation_and_real_time_route_tracking">Abilita il GPS per una navigazione accurata e il monitoraggio del percorso in tempo reale</string>
+    <string name="allow_location_permission_for_accurate_navigation_and_real_time_route_tracking">Consenti il permesso di posizione per una navigazione accurata e il monitoraggio del percorso in tempo reale.</string>
+    <string name="allow_location_permission_to_use_the_compass_and_find_your_direction_accurately">Consenti il permesso di posizione per usare la bussola e trovare la tua direzione con precisione.</string>
+    <string name="term_of_use">Termini di utilizzo</string>
+    <string name="cancel_subscription">Annulla abbonamento</string>
+    <string name="cancel_notice">Questo abbonamento è rinnovabile automaticamente e verrà addebitato istantaneamente. Gli abbonamenti verranno riattivati alla fine del periodo selezionato.</string>
+    <string name="compass_description">Strumento di navigazione direzionale.</string>
+    <string name="my_location_description">Visione in tempo reale.</string>
+    <string name="street_view_description">Vista del traffico interattiva.</string>
+    <string name="satellite_view_description">Vista geografica aerea.</string>
+    <string name="voice_map_description">Navigazione guidata da audio.</string>
+    <string name="seven_wonders_description">Monumenti iconici del mondo.</string>
+    <string name="longitude">Longitudine:</string>
+    <string name="latitude">Latitudine:</string>
+    <string name="unlock_pro_version">Sblocca la versione Pro</string>
+    <string name="unlimited_access_to_all_features_with_ads_free_experience">Accesso illimitato a tutte le funzionalità con esperienza senza pubblicità</string>
+    <string name="continue_with_monthly">Continua con Mensile</string>
+    <string name="monthly">Mensile</string>
+    <string name="yearly">Annuale</string>
+    <string name="continue_with_yearly">Continua con Annuale</string>
+    <string name="allow_notifications_to_stay_updated_with_important_alerts_and_updates_tailored_just_for_you">Consenti le notifiche per rimanere aggiornato con avvisi e aggiornamenti importanti su misura per te</string>
+    <string name="full_screen_ad_is_expected_to_show">Si prevede la visualizzazione di un annuncio a schermo intero</string>
+    <string name="please_wait">Attendere prego</string>
+    <string name="ai_guidance">Guida AI</string>
+    <string name="discover_the_seven_wonders">Scopri le Sette Meraviglie!</string>
+    <string name="ask_me_anything">Chiedimi qualsiasi cosa</string>
+    <string name="_2_unlock_ai_assistance_plan_smarter_travel_easier">Sblocca l\'assistenza AI – Pianifica in modo più intelligente, viaggia più facilmente.</string>
+    <string name="i_m_your_ai_travel_guide_just_tell_me_where_and_when_you_re_going_and_i_ll_help_plan_your_perfect_trip">
+    Sono la tua guida turistica AI! Dimmi solo dove e quando vai, e ti aiuterò a pianificare il viaggio perfetto.
+</string>
+
+    <string name="get_started">Inizia</string>
+
+    <string name="app_image">Immagine dell\'app</string>
+
+    <string name="cancel">Annulla</string>
+
+    <string name="submit">Invia</string>
+
+    <string name="like_our_gps_app">Ti piace la nostra app GPS?</string>
+    <string name="you_have_reached_the_limit">Hai raggiunto il limite!</string>
+    <string name="upgrade">Aggiorna</string>
+    <string name="no_internet_connections">Nessuna connessione Internet.</string>
+    <string name="Unexpected_error">Errore imprevisto.</string>
+    <string name="no_nearby_places_found">Nessun luogo nelle vicinanze trovato</string>
+    <string name="apply">Applica</string>
+    <string name="def">Predefinito</string>
+    <string name="traffic_day">Traffico diurno</string>
+    <string name="traffic_night">Traffico notturno</string>
+    <string name="satellite">Satellitare</string>
+    <string name="dark">Scuro</string>
+    <string name="light">Chiaro</string>
+    <string name="lets_start">Iniziamo</string>
+    <string name="continue_with_weekly">Continua con settimanale</string>
+    <string name="weekly">Settimanale</string>
+    <string name="notification_permussion">Notifica</string> <!-- Italian -->
+
+</resources>

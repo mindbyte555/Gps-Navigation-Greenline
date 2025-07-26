@@ -1,0 +1,6 @@
+<!-- res/drawable/card_gradient.xml -->
+<gradient xmlns:android="http://schemas.android.com/apk/res/android"
+    android:angle="45"
+    android:startColor="#FFB27B"
+    android:endColor="#F6791F"
+    android:type="linear" />

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mapbox_street"
+        android:title="@string/def"
+        android:icon="@drawable/default_item"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/traffic_day"
+        android:title="@string/traffic_day"
+        android:icon="@drawable/traffic_day"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/TRAFFIC_NIGHT"
+        android:title="@string/traffic_night"
+        android:icon="@drawable/traffic_night"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/SATELLITE"
+        android:title="@string/satellite"
+        android:icon="@drawable/satellite_view"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/DARK"
+        android:title="@string/dark"
+        android:icon="@drawable/night_item"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/LIGHT"
+        android:title="@string/light"
+        android:icon="@drawable/day_item"
+        app:showAsAction="never" />
+
+</menu>

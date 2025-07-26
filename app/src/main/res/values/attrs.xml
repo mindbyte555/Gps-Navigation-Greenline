@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="backgroundColor" format="color" />
+    <attr name="backgroundColor2" format="color" />
+    <attr name="transparrent" format="color" />
+    <attr name="Heading1TextColor" format="color" />
+    <attr name="Heading2TextColor" format="color" />
+    <attr name="primarycolor" format="color" />
+    <attr name="SecondaryColor" format="color" />
+    <attr name="settingbase" format="color" />
+    <declare-styleable name="TemplateView">
+        <attr name="gnt_template_type" format="reference" />
+
+    </declare-styleable>
+</resources>
