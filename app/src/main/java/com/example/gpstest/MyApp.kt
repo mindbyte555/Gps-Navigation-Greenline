@@ -76,7 +76,6 @@ class MyApp : Application(), DefaultLifecycleObserver {
         if (networkCountryCode in supportedCountries) {
             whiteregion = true
             Log.d("MyApp", "Supported country:$whiteregion $networkCountryCode")
-
         } else {
             whiteregion = false
             Log.d("MyApp", "not country:$whiteregion $networkCountryCode")
