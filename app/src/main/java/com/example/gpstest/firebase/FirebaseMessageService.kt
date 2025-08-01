@@ -40,12 +40,6 @@ class FirebaseMessageService : FirebaseMessagingService() {
         val notificationId = 1001
         Log.e("FCM", "showNotification: else")
 
-        val dismissIntent = Intent(this, NotificationDismissReceiver::class.java).apply {
-            putExtra("notification_id", notificationId)
-        }
-        pendingIntent = PendingIntent.getBroadcast(
-            this, 0, dismissIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
-        )
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
