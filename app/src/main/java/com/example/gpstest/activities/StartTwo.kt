@@ -206,10 +206,10 @@ class StartTwo : BaseActivity() {
         FirebaseCustomEvents(this).createFirebaseEvents("home2 launch", "true")
         binding.textView5.isSelected = true
         binding.textView55.isSelected = true
-        binding.textView15.isSelected = true
-        binding.textView14.isSelected = true
-        binding.textView16.isSelected = true
-        binding.textView13.isSelected = true
+//        binding.textView15.isSelected = true
+//        binding.textView14.isSelected = true
+//        binding.textView16.isSelected = true
+//        binding.textView13.isSelected = true
         Log.d("refresh", "onCreate: called ")
         val prefUtil = Prefutils(this)
         prefUtil.setBool("isFirstTime", false)
@@ -431,7 +431,7 @@ class StartTwo : BaseActivity() {
             )
         }
 
-        binding.weather.clickWithDebounce {
+        binding.btnWeather.clickWithDebounce {
             if (weatherInter) {
                 if (mInterstitialAd != null) {
                     AdsManager.showInterstitial(
@@ -556,7 +556,7 @@ class StartTwo : BaseActivity() {
             }
             FirebaseCustomEvents(this).createFirebaseEvents(AI_Bot_clicked, "true")
         }
-        binding.compass.clickWithDebounce {
+        binding.compass1.clickWithDebounce {
 //            binding.compass.animate()
 //                .scaleX(0.9f)
 //                .scaleY(0.9f)
@@ -670,7 +670,7 @@ class StartTwo : BaseActivity() {
                 ).putExtra("search", true)
             )
         }
-        binding.satelliteLayout.clickWithDebounce {
+        binding.satelliteLayout1.clickWithDebounce {
 //
 //            binding.sateliteMap.animate()
 //                .scaleX(0.9f).scaleY(0.9f).setDuration(100).withEndAction {
@@ -769,7 +769,7 @@ class StartTwo : BaseActivity() {
 //            }, 200)
             FirebaseCustomEvents(this).createFirebaseEvents(streets_btn_clicked, "true")
         }
-        binding.placesLayout.clickWithDebounce {
+        binding.placesLayout1.clickWithDebounce {
 
 //            binding.sevenwonders.animate()
 //                .scaleX(0.9f).scaleY(0.9f).setDuration(100).withEndAction {
@@ -864,7 +864,7 @@ class StartTwo : BaseActivity() {
 //            }, 200)
             FirebaseCustomEvents(this).createFirebaseEvents(route_btn_clicked, "true")
         }
-        binding.myloc.clickWithDebounce {
+        binding.myloc1.clickWithDebounce {
 //
 //
 //            binding.myLoc.animate()

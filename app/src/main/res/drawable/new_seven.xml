@@ -5,7 +5,8 @@
     android:viewportHeight="68">
   <path
       android:pathData="M12,0L56,0A12,12 0,0 1,68 12L68,56A12,12 0,0 1,56 68L12,68A12,12 0,0 1,0 56L0,12A12,12 0,0 1,12 0z"
-      android:fillColor="#BE4300"/>
+      android:fillColor="#2C8AF8"
+      android:fillAlpha="0.1"/>
   <path
       android:pathData="M36.828,21.921L27.59,22.573L23.782,26.712L20.219,31.496L19.689,36.083L21.384,41.161L24.038,44.99L30.357,49.563L36.261,50.3L40.532,48.37L45.311,44.827L47.9,39.59L48.958,32.681L46.595,27.939L43.153,24.016L36.828,21.921Z"
       android:fillColor="#00B3BC"/>

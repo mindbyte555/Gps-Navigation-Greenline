@@ -11,9 +11,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/materialCardView"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:outlineAmbientShadowColor="#2C8AF8"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_110sdp"
         android:outlineSpotShadowColor="#2C8AF8"
         android:translationZ="@dimen/_10sdp"
         app:cardBackgroundColor="#00FFFFFF"
@@ -29,7 +28,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/sp3" />
+            android:src="@drawable/ic_app" />
 
     </androidx.cardview.widget.CardView>
 

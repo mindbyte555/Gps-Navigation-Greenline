@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="#F5F5F5"
     tools:context=".activities.StartTwo">
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -29,7 +29,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:fontFamily="@font/lato_bold"
                 android:text="Gps Navigation"
                 android:textColor="@color/black"
@@ -39,29 +39,16 @@
                 app:layout_constraintLeft_toRightOf="@+id/cardView"
                 app:layout_constraintTop_toTopOf="@+id/cardView" />
 
-            <androidx.cardview.widget.CardView
+            <ImageView
                 android:id="@+id/cardView"
                 android:layout_width="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_6sdp"
-                android:backgroundTint="#FFFFFF"
-                android:clickable="true"
-                android:foreground="@drawable/ripplecardbtn"
-                app:cardCornerRadius="@dimen/_6sdp"
-                app:cardElevation="@dimen/_6sdp"
-                app:layout_constraintHorizontal_bias="0.038"
+               android:paddingVertical="@dimen/_8sdp"
+                android:src="@drawable/menu"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/menuimg"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/menu" />
-
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
                 android:id="@+id/weather"
@@ -90,9 +77,20 @@
                 android:id="@+id/cardView2"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:src="@drawable/new_crown"
                 app:layout_constraintBottom_toBottomOf="@+id/weather"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/weather" />
+
+            <ImageView
+                android:id="@+id/botLayout"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:src="@drawable/ic_botnew"
+                app:layout_constraintBottom_toBottomOf="@+id/weather"
+                app:layout_constraintEnd_toStartOf="@+id/cardView2"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/weather" />
 
@@ -116,19 +114,19 @@
                         android:fontFamily="@font/lato_bold"
                         android:text="@string/main_features"
                         android:textSize="@dimen/_14sdp"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="@+id/routefinder"
                         app:layout_constraintTop_toBottomOf="@+id/mapViewc" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/botLayout"
+                        android:id="@+id/botLayout1"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_15sdp"
                         android:background="@drawable/bg_ai"
                         android:elevation="@dimen/_12sdp"
+                        android:visibility="gone"
                         android:outlineAmbientShadowColor="@color/mBlue"
                         android:outlineSpotShadowColor="@color/mBlue"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -189,6 +187,7 @@
                         android:layout_marginHorizontal="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/stroke"
+                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -225,292 +224,18 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/routefinder"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_12sdp"
-                        android:background="@drawable/rf2"
-                        android:elevation="@dimen/_12sdp"
-                        android:outlineAmbientShadowColor="#11A675"
-                        android:outlineSpotShadowColor="#11A675"
-                        app:layout_constraintEnd_toStartOf="@+id/voice_map"
-                        app:layout_constraintHeight_percent="0.142"
-                        app:layout_constraintHorizontal_chainStyle="spread"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/botLayout">
-
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:fontFamily="@font/lato_bold"
-                            android:marqueeRepeatLimit="marquee_forever"
-                            android:singleLine="true"
-                            android:text="@string/route_finder"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14sdp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="packed" />
-
-                        <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginEnd="@dimen/_60sdp"
-                            android:fontFamily="@font/lato_regular"
-                            android:lines="2"
-                            android:text="@string/navigate_fast_arrive_safe"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_9sdp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:src="@drawable/rf22"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintDimensionRatio="1:1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHeight_percent="0.4" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/voice_map"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginStart="@dimen/_12sdp"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:background="@drawable/vm2"
-                        android:elevation="@dimen/_12sdp"
-                        android:outlineAmbientShadowColor="#FF901F"
-                        android:outlineSpotShadowColor="#FF901F"
-                        app:layout_constraintBottom_toBottomOf="@id/routefinder"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHeight_percent="0.142"
-                        app:layout_constraintStart_toEndOf="@+id/routefinder"
-                        app:layout_constraintTop_toTopOf="@id/routefinder"
-                        app:layout_constraintVertical_bias="0.0">
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:src="@drawable/vm22"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintDimensionRatio="1:1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHeight_percent="0.4" />
-
-                        <TextView
-                            android:id="@+id/textView55"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:fontFamily="@font/lato_bold"
-                            android:marqueeRepeatLimit="marquee_forever"
-                            android:singleLine="true"
-                            android:text="@string/voice_map"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14sdp"
-                            app:layout_constraintEnd_toEndOf="parent"
-
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView66"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginEnd="@dimen/_50sdp"
-                            android:fontFamily="@font/lato_regular"
-                            android:lines="2"
-                            android:text="@string/voice_map_description"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_9sdp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView55" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/street_view"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_12sdp"
-                        android:background="@drawable/sv2"
-                        android:elevation="@dimen/_12sdp"
-                        android:foreground="@drawable/ripple"
-                        android:outlineAmbientShadowColor="#8572FF"
-                        android:outlineSpotShadowColor="#8572FF"
-                        android:translationZ="6dp"
-                        app:layout_constraintEnd_toStartOf="@+id/near_by"
-                        app:layout_constraintHeight_percent="0.142"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintHorizontal_chainStyle="spread"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/routefinder">
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:src="@drawable/st22"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintDimensionRatio="1:1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHeight_percent="0.4" />
-
-                        <TextView
-                            android:id="@+id/textViewst"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:fontFamily="@font/lato_bold"
-                            android:marqueeRepeatLimit="marquee_forever"
-                            android:singleLine="true"
-                            android:text="@string/street_view"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14sdp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="packed" />
-
-                        <TextView
-                            android:id="@+id/textView6st"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginEnd="@dimen/_60sdp"
-                            android:fontFamily="@font/lato_regular"
-                            android:lines="2"
-                            android:text="@string/all_street_clear_view_easily"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_9sdp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewst" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/near_by"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginStart="@dimen/_12sdp"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:background="@drawable/nb2"
-                        android:elevation="@dimen/_12sdp"
-                        android:foreground="@drawable/ripple"
-                        android:outlineAmbientShadowColor="#FE7978"
-                        android:outlineSpotShadowColor="#FE7978"
-                        app:layout_constraintBottom_toBottomOf="@id/street_view"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHeight_percent="0.142"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/street_view"
-                        app:layout_constraintTop_toTopOf="@id/street_view">
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_10sdp"
-                            android:src="@drawable/np22"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintDimensionRatio="1:1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHeight_percent="0.4" />
-
-                        <TextView
-                            android:id="@+id/textView55nb"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:fontFamily="@font/lato_bold"
-                            android:marqueeRepeatLimit="marquee_forever"
-                            android:singleLine="true"
-                            android:text="@string/nearby_places"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14sdp"
-                            app:layout_constraintEnd_toEndOf="parent"
-
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/textView66nb"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginEnd="@dimen/_40sdp"
-                            android:fontFamily="@font/lato_regular"
-                            android:lines="2"
-                            android:text="@string/explore_all_places_nearby"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_9sdp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView55nb" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/mapViewc"
                         android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginHorizontal="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_height="@dimen/_135sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:elevation="@dimen/_2sdp"
                         app:cardBackgroundColor="#F0F6FF"
-                        app:cardCornerRadius="16dp"
+                        app:cardCornerRadius="@dimen/_12sdp"
                         app:cardPreventCornerOverlap="false"
                         app:cardUseCompatPadding="false"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHeight_percent="0.26"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/ed_field"
                         app:strokeColor="#F0F6FF">
@@ -551,6 +276,453 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/routefinder"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_120sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:background="@drawable/routefinderback"
+                        android:elevation="@dimen/_10sdp"
+                        android:outlineSpotShadowColor="#2C8AF8"
+                        app:layout_constraintEnd_toStartOf="@+id/voice_map"
+                        app:layout_constraintHeight_percent="0.142"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mapViewc">
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:focusable="true"
+                            android:fontFamily="@font/lato_bold"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="@string/route_finder"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/textView6"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView17"/>
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_regular"
+                            android:gravity="center"
+                            android:text="@string/navigate_fast_arrive_safe"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/textView5"
+                            app:layout_constraintStart_toStartOf="@+id/textView5"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                        <ImageView
+                            android:id="@+id/imageView17"
+                            android:layout_width="@dimen/_45sdp"
+                            android:layout_height="@dimen/_45sdp"
+                            android:src="@drawable/routefinder_png"
+                            app:layout_constraintBottom_toTopOf="@+id/textView5"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight_percent="0.4"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/voice_map"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:paddingVertical="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/famousplaceback"
+                        android:elevation="@dimen/_12sdp"
+                        android:outlineSpotShadowColor="#FF901F"
+                        app:layout_constraintBottom_toBottomOf="@+id/routefinder"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/routefinder"
+                        app:layout_constraintTop_toTopOf="@+id/routefinder">
+
+                        <ImageView
+                            android:id="@+id/imageView18"
+                            android:layout_width="@dimen/_45sdp"
+                            android:layout_height="@dimen/_45sdp"
+                            android:src="@drawable/vm22"
+                            app:layout_constraintBottom_toTopOf="@+id/textView55"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView55"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:fontFamily="@font/lato_bold"
+                            android:singleLine="true"
+                            android:text="@string/voice_map"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/textView66"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+
+                        <TextView
+                            android:id="@+id/textView66"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_regular"
+                            android:text="@string/voice_map_description"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            android:textSize="@dimen/_10sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/textView55"
+                            app:layout_constraintStart_toStartOf="@+id/textView55"
+                            app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/street_view"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/round_corner2"
+                        android:foreground="@drawable/ripple"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/routefinder"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="@+id/routefinder"
+                        app:layout_constraintTop_toBottomOf="@+id/routefinder">
+
+                        <ImageView
+                            android:id="@+id/imageView19"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:src="@drawable/streetview_svg"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textViewst"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/lato_bold"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@string/street_view"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView19"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView19"
+                            app:layout_constraintTop_toTopOf="@+id/imageView19"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <TextView
+                            android:id="@+id/textView6st"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_60sdp"
+                            android:fontFamily="@font/lato_regular"
+                            android:lines="2"
+                            android:text="@string/all_street_clear_view_easily"
+                            android:textColor="@color/white"
+                            android:visibility="gone"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewst" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/near_by"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/round_corner2"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/street_view"
+                        app:layout_constraintEnd_toEndOf="@+id/voice_map"
+                        app:layout_constraintStart_toStartOf="@+id/voice_map"
+                        app:layout_constraintTop_toTopOf="@id/street_view">
+
+                        <ImageView
+                            android:id="@+id/imageView20"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:src="@drawable/new_near"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView55nb"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:fontFamily="@font/lato_bold"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@string/nearby_places"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView20"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView20"
+                            app:layout_constraintTop_toTopOf="@+id/imageView20" />
+
+                        <TextView
+                            android:id="@+id/textView66nb"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_40sdp"
+                            android:fontFamily="@font/lato_regular"
+                            android:lines="2"
+                            android:text="@string/explore_all_places_nearby"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView55nb" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/myloc1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/round_corner2"
+                        android:foreground="@drawable/ripple"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/street_view"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="@+id/street_view"
+                        app:layout_constraintTop_toBottomOf="@+id/street_view">
+
+                        <ImageView
+                            android:id="@+id/imageView191"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:src="@drawable/my_location"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/lato_bold"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@string/my_location"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView191"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView191"
+                            app:layout_constraintTop_toTopOf="@+id/imageView191" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/compass1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/round_corner2"
+                        android:foreground="@drawable/ripple"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/near_by"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="@+id/near_by"
+                        app:layout_constraintTop_toBottomOf="@+id/street_view">
+
+                        <ImageView
+                            android:id="@+id/imageView192"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:src="@drawable/compass"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:fontFamily="@font/lato_bold"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@string/compass"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView192"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView192"
+                            app:layout_constraintTop_toTopOf="@+id/imageView192" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/satelliteLayout1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/round_corner2"
+                        android:foreground="@drawable/ripple"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/myloc1"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintStart_toStartOf="@+id/myloc1"
+                        app:layout_constraintTop_toBottomOf="@+id/myloc1">
+
+                        <ImageView
+                            android:id="@+id/imageView193"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:src="@drawable/sattelite_view"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:fontFamily="@font/lato_bold"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@string/satellite_map"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView193"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView193"
+                            app:layout_constraintTop_toTopOf="@+id/imageView193" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/placesLayout1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/round_corner2"
+                        android:foreground="@drawable/ripple"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/compass1"
+                        app:layout_constraintStart_toStartOf="@+id/compass1"
+                        app:layout_constraintTop_toBottomOf="@+id/compass1">
+
+                        <ImageView
+                            android:id="@+id/imageView194"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:src="@drawable/new_seven"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:fontFamily="@font/lato_bold"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@string/seven_wonders"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView194"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView194"
+                            app:layout_constraintTop_toTopOf="@+id/imageView194" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/btnWeather"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:background="@drawable/round_corner2"
+                        android:foreground="@drawable/ripple"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/satelliteLayout1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/satelliteLayout1"
+                        app:layout_constraintTop_toBottomOf="@+id/satelliteLayout1">
+
+                        <ImageView
+                            android:id="@+id/imageView195"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:src="@drawable/ic_weather_new"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:fontFamily="@font/lato_bold"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:singleLine="true"
+                            android:text="@string/weather"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView195"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imageView195"
+                            app:layout_constraintTop_toTopOf="@+id/imageView195" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
                     <TextView
                         android:id="@+id/otherfeatures"
                         android:layout_width="wrap_content"
@@ -562,171 +734,6 @@
                         android:visibility="gone"
                         app:layout_constraintStart_toStartOf="@+id/street_view"
                         app:layout_constraintTop_toBottomOf="@+id/street_view" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_60sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:visibility="invisible"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/otherfeatures">
-
-                        <!-- Compass -->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/compass"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="@dimen/_60sdp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/satelliteLayout"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="packed"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <ImageView
-                                android:id="@+id/imageView13"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="@dimen/_40sdp"
-                                android:src="@drawable/compass_new"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView13"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:ellipsize="marquee"
-                                android:focusable="true"
-                                android:fontFamily="@font/lato_bold"
-                                android:marqueeRepeatLimit="marquee_forever"
-                                android:singleLine="true"
-                                android:text="@string/compass"
-                                android:textSize="@dimen/_9sdp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/imageView13" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <!-- Satellite -->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/satelliteLayout"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="@dimen/_60sdp"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/myloc"
-                            app:layout_constraintStart_toEndOf="@+id/compass"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <ImageView
-                                android:id="@+id/imageView14"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="@dimen/_40sdp"
-                                android:src="@drawable/satellite_new"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView14"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:ellipsize="marquee"
-                                android:focusable="true"
-                                android:fontFamily="@font/lato_bold"
-                                android:marqueeRepeatLimit="marquee_forever"
-                                android:singleLine="true"
-                                android:text="@string/satellite_map"
-                                android:textSize="@dimen/_9sdp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/imageView14" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <!-- Famous Places -->
-
-                        <!-- My Location -->
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/placesLayout"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="@dimen/_60sdp"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/myloc"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.0">
-
-                            <ImageView
-                                android:id="@+id/imageView15"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="@dimen/_40sdp"
-                                android:src="@drawable/famous_new"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView15"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:ellipsize="marquee"
-                                android:focusable="true"
-                                android:fontFamily="@font/lato_bold"
-                                android:marqueeRepeatLimit="marquee_forever"
-                                android:singleLine="true"
-                                android:text="@string/seven_wonders"
-                                android:textSize="@dimen/_9sdp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/imageView15" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/myloc"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="@dimen/_60sdp"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/placesLayout"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/satelliteLayout"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <ImageView
-                                android:id="@+id/imageView16"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="@dimen/_40sdp"
-                                android:src="@drawable/myloc_new"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:id="@+id/textView16"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:ellipsize="marquee"
-                                android:focusable="true"
-                                android:fontFamily="@font/lato_bold"
-                                android:marqueeRepeatLimit="marquee_forever"
-                                android:singleLine="true"
-                                android:text="@string/my_location"
-                                android:textSize="@dimen/_9sdp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/imageView16" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -765,13 +772,10 @@
         android:id="@+id/adLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_12sdp"
-        android:background="#EBEBEB"
+        android:background="#10000000"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/my_drawer_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -781,6 +785,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:background="#FFFFFF"
+        android:visibility="gone"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="@dimen/_6sdp"
