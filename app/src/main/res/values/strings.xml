@@ -151,6 +151,7 @@
     <string name="this_action_man_contain_ad">This action may contain ads</string>
     <string name="tools">Tools</string>
     <string name="notification_permussion">Notification</string>
+    <string name="voice_nav">Voice Navigation</string>
 
 
 </resources>

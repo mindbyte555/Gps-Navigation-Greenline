@@ -373,7 +373,7 @@
                             android:gravity="center"
                             android:fontFamily="@font/lato_bold"
                             android:singleLine="true"
-                            android:text="@string/voice_map"
+                            android:text="@string/voice_nav"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_14sdp"
                             app:layout_constraintBottom_toTopOf="@+id/textView66"
