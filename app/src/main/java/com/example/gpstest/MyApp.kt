@@ -222,6 +222,7 @@ class MyApp : Application(), DefaultLifecycleObserver {
 
             val interstitial = jsonObject.getJSONObject("Interstitial")
             interstitialEnabled = interstitial.getBoolean("enabled")
+            interstitialMappilaryEnabled = interstitial.getBoolean("interstitialMappilaryEnabled")
             Admob_Interstitial = interstitial.getString("ad_unit_id")
             interstitialCounter = interstitial.getInt("load_counter")
             firstinterCounter = interstitial.getInt("inter_first_count")
@@ -332,6 +333,7 @@ class MyApp : Application(), DefaultLifecycleObserver {
         var appOpenEnabled = true
         var appOpen_resume_enabled = true
         var interstitialEnabled = true
+        var interstitialMappilaryEnabled = true
         var interstitialCounter = 5
         var firstinterCounter = 2
         var bannerEnabled = true

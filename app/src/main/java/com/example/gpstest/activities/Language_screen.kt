@@ -259,81 +259,22 @@ class LanguageScreen : BaseActivity() {
 
 
         binding.btnSave.setOnClickListener {
-//           if (selectedLanguage=="")
-//           {
-//               Toast.makeText(this, "Select language", Toast.LENGTH_SHORT).show()
-//           }
-            //   else
-            //  {
             FirebaseCustomEvents(this).createFirebaseEvents(lang_apply, "true")
             prefUtil.setString("selectedLanguage", selectedLanguage)
             if (prefUtil.getBool("isFirstTime", true)) {
-//                        AdsManager.showInterstitial(
-//                            false,
-//                            this,
-//                            object : AdsManager.InterstitialAdListener {
-//
-//                                override fun onAdClosed() {
-//                                    if (prefUtil.getBool("is_premium", false)) {
-//                                        val intent =
-//                                            Intent(this@LanguageScreen, StartActivity::class.java)
-//                                        startActivity(intent)
-//                                        finish()
-//                                    }
-//                                    else {
-//                                        val intent =
-//                                            Intent(
-//                                                this@LanguageScreen,
-//                                                InApp_Purchase_Screen::class.java
-//                                            )
-//                                        startActivity(intent)
-//                                        finish()
-//                                    }
-//
-//                                }
-//                            }, "language"
-//                        )
-
-//                    else
-//                    {
                 InterstitialClass.requestInterstitial(
                     this@LanguageScreen,
                     this@LanguageScreen,
                     "language",
                     object : ActionOnAdClosedListener {
                         override fun ActionAfterAd() {
-                            //    if (prefUtil.getBool("is_premium", false)) {
-//                                    if (newUi)
-//                                    {
                             val intent =
                                 Intent(this@LanguageScreen, InApp_Purchase_Screen::class.java)
                             startActivity(intent)
                             finish()
-//                                    }
-//                                    else
-//                                    {
-//                                        val intent =
-//                                            Intent(this@LanguageScreen, StartActivity::class.java)
-//                                        startActivity(intent)
-//                                        finish()
-//                                    }
-
-                            //  }
-//                                    else {
-//                                        val intent =
-//                                            Intent(
-//                                                this@LanguageScreen,
-//                                                InApp_Purchase_Screen::class.java
-//                                            )
-//                                        startActivity(intent)
-//                                        finish()
-//                                    }
                         }
                     }
-
                 )
-//                    }
-
             } else {
                 if (alreadySelected == selectedLanguage) {
                     finish()
@@ -344,9 +285,6 @@ class LanguageScreen : BaseActivity() {
                             this@LanguageScreen,
                             object : AdsManager.InterstitialAdListener {
                                 override fun onAdClosed() {
-//                                        if (newUi)
-//                                        {
-//                                            val intent = Intent(this@LanguageScreen, StartTwo::class.java).apply {
                                     val intent = Intent(
                                         this@LanguageScreen,
                                         InApp_Purchase_Screen::class.java
@@ -358,19 +296,6 @@ class LanguageScreen : BaseActivity() {
                                     }
                                     startActivity(intent)
                                     finish()
-//                                        }
-//                                        else
-//                                        {
-//                                            val intent = Intent(this@LanguageScreen, StartActivity::class.java).apply {
-//                                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-//                                                putExtra("refresh", true)
-//                                                putExtra("language", selectedLanguage)
-//                                            }
-//                                            startActivity(intent)
-//                                            finish()
-//                                        }
-
-
                                 }
 
                             }, "language"
@@ -378,9 +303,6 @@ class LanguageScreen : BaseActivity() {
                     } else {
                         if (interstitialAd != null) {
                             showAvailableInterstitial(this@LanguageScreen) {
-//                                    if (newUi)
-//                                    {
-//                                        val intent = Intent(this@LanguageScreen, StartTwo::class.java).apply {
                                 val intent = Intent(
                                     this@LanguageScreen,
                                     InApp_Purchase_Screen::class.java
@@ -392,17 +314,6 @@ class LanguageScreen : BaseActivity() {
                                 }
                                 startActivity(intent)
                                 finish()
-//                                    }
-//                                    else
-//                                    {
-//                                        val intent = Intent(this@LanguageScreen, StartActivity::class.java).apply {
-//                                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-//                                            putExtra("refresh", true)
-//                                            putExtra("language", selectedLanguage)
-//                                        }
-//                                        startActivity(intent)
-//                                        finish()
-//                                    }
                             }
                         } else {
                             InterstitialClass.requestInterstitial(
@@ -411,9 +322,6 @@ class LanguageScreen : BaseActivity() {
                                 "lang",
                                 object : ActionOnAdClosedListener {
                                     override fun ActionAfterAd() {
-//                                            if (newUi)
-//                                            {
-//                                                val intent = Intent(this@LanguageScreen, StartTwo::class.java).apply {
                                         val intent = Intent(
                                             this@LanguageScreen,
                                             InApp_Purchase_Screen::class.java
@@ -425,17 +333,6 @@ class LanguageScreen : BaseActivity() {
                                         }
                                         startActivity(intent)
                                         finish()
-//                                            }
-//                                            else
-//                                            {
-//                                                val intent = Intent(this@LanguageScreen, StartActivity::class.java).apply {
-//                                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-//                                                    putExtra("refresh", true)
-//                                                    putExtra("language", selectedLanguage)
-//                                                }
-//                                                startActivity(intent)
-//                                                finish()
-//                                            }
                                     }
                                 }
 
@@ -444,9 +341,6 @@ class LanguageScreen : BaseActivity() {
                     }
                 }
             }
-            //  }
-
-
         }
 
 

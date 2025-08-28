@@ -11,15 +11,14 @@
         android:id="@+id/adLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
-        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_12sdp"
         android:background="#EBEBEB"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
     <ImageView
         android:id="@+id/ic_back"
         android:layout_width="@dimen/_25sdp"
@@ -283,7 +282,7 @@ android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintHeight_percent="0.5"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

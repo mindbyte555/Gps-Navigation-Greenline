@@ -398,6 +398,31 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/routefinder"
+                        android:background="@drawable/rounded_with_gray_light"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:shimmer_auto_start="true">
+
+                        <RelativeLayout
+                            android:id="@+id/nativeAd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:minHeight="@dimen/_155sdp"
+                            android:gravity="center"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/street_view"
                         android:layout_width="0dp"
@@ -409,7 +434,7 @@
                         app:layout_constraintEnd_toEndOf="@+id/routefinder"
                         app:layout_constraintHorizontal_chainStyle="spread"
                         app:layout_constraintStart_toStartOf="@+id/routefinder"
-                        app:layout_constraintTop_toBottomOf="@+id/routefinder">
+                        app:layout_constraintTop_toBottomOf="@+id/shimmer">
 
                         <ImageView
                             android:id="@+id/imageView19"

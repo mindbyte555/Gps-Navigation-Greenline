@@ -22,12 +22,16 @@ import com.example.gpstest.AdsManager.InterstitialClass.interstitialAd
 import com.example.gpstest.AdsManager.InterstitialClass.showAvailableInterstitial
 import com.example.gpstest.CurrentLocation
 import com.example.gpstest.LocationViewModel
+import com.example.gpstest.MyApp.Companion.bannerEnabled
 import com.example.gpstest.MyApp.Companion.clickWithDebounce
+import com.example.gpstest.MyApp.Companion.isEnabled
+import com.example.gpstest.MyApp.Companion.isInternetAvailable
 import com.example.gpstest.R
 import com.example.gpstest.databinding.ActivityNavigateBinding
 import com.example.gpstest.firebase.FirebaseCustomEvents
 import com.example.gpstest.firebase.customevents
 import com.example.gpstest.utls.InfoUtil
+import com.example.gpstest.utls.Prefutils
 import com.mapbox.geojson.Point
 import com.mapbox.maps.Style
 import com.mapbox.maps.dsl.cameraOptions
@@ -156,6 +160,28 @@ class Navigate : BaseActivity() {
         }
         binding.icBack.clickWithDebounce {
             finish()
+        }
+        loadads()
+    }
+
+    private fun loadads() {
+        if (Prefutils(this@Navigate).getBool("is_premium", false) || !bannerEnabled || !isEnabled) {
+            binding.adLayout.visibility = View.GONE
+        } else {
+            binding.adLayout.visibility = View.VISIBLE
+            if (isInternetAvailable(this)) {
+                AdsManager.loadHomeBannerAd(binding.adLayout,
+                    this@Navigate, "search",
+                    object : AdsManager.AdmobBannerAdListener {
+                        override fun onAdFailed() {
+                            Log.e("TEST TAG", "onAdFailed: Banner")
+                        }
+
+                        override fun onAdLoaded() {
+                            Log.e("TEST TAG", "onAdLoaded: Banner")
+                        }
+                    })
+            }
         }
     }
 

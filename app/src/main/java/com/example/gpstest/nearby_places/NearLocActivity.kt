@@ -23,13 +23,21 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gpstest.AdsManager.ActionOnAdClosedListener
+import com.example.gpstest.AdsManager.AdsManager
+import com.example.gpstest.AdsManager.AdsManager.Companion.mInterstitialAd
+import com.example.gpstest.AdsManager.InterstitialClass
+import com.example.gpstest.AdsManager.InterstitialClass.interstitialAd
+import com.example.gpstest.AdsManager.InterstitialClass.showAvailableInterstitial
 import com.example.gpstest.activities.BaseActivity
 import com.example.gpstest.R
+import com.example.gpstest.activities.MyLoc
 import com.example.gpstest.databinding.ActivityNearLocBinding
 import com.example.gpstest.gps.LocationPermissionHelper
 import com.example.gpstest.activities.Navigate
@@ -90,7 +98,7 @@ class NearLocActivity : BaseActivity() {
         tvEmptyLocation = persistentBottomSheet.findViewById(R.id.tv_empty_location)
         InfoUtil(this).setSystemBarsColor(R.attr.backgroundColor)
         binding.ivBack.setOnClickListener {
-         finish()
+            onBackPressedDispatcher.onBackPressed()
         }
         binding.grantpermission.setOnClickListener {
             locationHelper.requestLocationPermission(this)
@@ -100,6 +108,36 @@ class NearLocActivity : BaseActivity() {
             locationHelper.openLocationSettings(this)
         }
         checkPermissions()
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (mInterstitialAd != null) {
+                    AdsManager.showInterstitial(
+                        true, this@NearLocActivity, object : AdsManager.InterstitialAdListener {
+                            override fun onAdClosed() {
+                               finish()
+                            }
+                        }, "NearbyPlaces_activity_Back"
+                    )
+                } else {
+                    if (interstitialAd != null) {
+                        showAvailableInterstitial(this@NearLocActivity) {
+                            finish()
+                        }
+                    } else {
+                        InterstitialClass.requestInterstitial(this@NearLocActivity,
+                            this@NearLocActivity,
+                            "NearbyPlaces_activity_Back",
+                            object : ActionOnAdClosedListener {
+                                override fun ActionAfterAd() {
+                                   finish()
+                                }
+                            })
+                    }
+                }
+
+            }
+        })
 
     }
     private fun checkPermissions() {

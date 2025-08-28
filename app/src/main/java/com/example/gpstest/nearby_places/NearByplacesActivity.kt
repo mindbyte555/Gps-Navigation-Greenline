@@ -106,8 +106,6 @@ class NearByplacesActivity : BaseActivity() {
         initData()
         setAdapter()
         clickListeners()
-
-
     }
 
     private fun clickListeners() {

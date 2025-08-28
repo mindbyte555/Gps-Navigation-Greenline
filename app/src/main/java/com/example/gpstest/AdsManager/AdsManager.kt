@@ -55,7 +55,7 @@ class AdsManager(val context: Context) {
         var cachedNativeAd: NativeAd? = null
         var ad = ""
         private var retryCount = 0
-        fun getAdSize(ad_view_container: RelativeLayout, context: Context): AdSize {
+        fun getAdSize(ad_view_container: ViewGroup, context: Context): AdSize {
             val adSize: AdSize
             val display = (context as Activity).windowManager.defaultDisplay
             val outMetrics = DisplayMetrics()
@@ -227,9 +227,9 @@ class AdsManager(val context: Context) {
         }
 
         fun loadSplashBanner(
-            adLayout: RelativeLayout?,
+            adLayout: ViewGroup?,
             context: Context,
-            listener: AdmobBannerAdListener
+            listener: AdmobBannerAdListener? = null
         ): AdView? {
             if (Prefutils(context).getBool("is_premium", false) || !bannerEnabled || !isEnabled) {
                 return null
@@ -244,12 +244,12 @@ class AdsManager(val context: Context) {
                 adListener = object : AdListener() {
                     override fun onAdLoaded() {
                         Log.d(TAG, "Ad Loaded Successfully")
-                        listener.onAdLoaded()
+                        listener?.onAdLoaded()
                     }
 
                     override fun onAdFailedToLoad(p0: LoadAdError) {
                         Log.e(TAG, "Ad Failed to Load: ${p0.message}")
-                        listener.onAdFailed()
+                        listener?.onAdFailed()
                     }
                 }
             }
@@ -259,7 +259,7 @@ class AdsManager(val context: Context) {
                 adView.loadAd(AdRequest.Builder().build())
             } catch (e: Exception) {
                 Log.e(TAG, "Exception while loading banner: ${e.message}")
-                listener.onAdFailed()
+                listener?.onAdFailed()
                 return null
             }
 
@@ -324,7 +324,7 @@ class AdsManager(val context: Context) {
             adLayout: RelativeLayout?,
             context: Context,
             source: String? = null,
-            listener: AdmobBannerAdListener,
+            listener: AdmobBannerAdListener? =  null,
         ): AdView? {
             if (Prefutils(context).getBool("is_premium", false) || !bannerEnabled || !isEnabled) {
                 return null
@@ -376,19 +376,87 @@ class AdsManager(val context: Context) {
                     super.onAdLoaded()
                     adLayout.visibility = View.VISIBLE
                     Log.d("AdLoader", "Ad Loaded Successfully")
-                    listener.onAdLoaded()
+                    listener?.onAdLoaded()
                 }
 
                 override fun onAdFailedToLoad(p0: LoadAdError) {
                     super.onAdFailedToLoad(p0)
                     Log.e("AdLoader", "Ad Failed to Load: ${p0.message}")
-                    listener.onAdFailed()
+                    listener?.onAdFailed()
                 }
             }
             return adView
         }
 
-        private fun getAdaptiveBannerAdSize(context: Context, adLayout: RelativeLayout): AdSize {
+        fun loadHomeCollapsible(
+            adLayout: ViewGroup?,
+            context: Context,
+            source: String? = null,
+            listener: AdmobBannerAdListener? =  null,
+        ): AdView? {
+            if (Prefutils(context).getBool("is_premium", false) || !bannerEnabled || !isEnabled) {
+                return null
+            }
+
+            adLayout?.removeAllViews()
+            adLayout?.visibility = View.VISIBLE
+
+            val adView = AdView(context)
+
+            val adRequestBuilder = AdRequest.Builder()
+            Log.e(TAG, "loadHomeBannerAd bannerHomeEnabled: $bannerHomeEnabled")
+//            if (bannerCollapsible) {
+                adView.adUnitId = AdIds.AdmobCollaspeBannerId()
+                adView.setAdSize(getAdSize(adLayout!!, context))
+                Log.e("AdLoader", "loadHomeBannerAd source: $source")
+//                if (source == "weather" || source == "search") {
+//                    val extras = Bundle()
+//                    extras.putString("collapsible", "bottom")
+//                    adRequestBuilder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
+//
+//                    Log.d("AdLoader", "Loading Collapsible Banner Ad for source1:$source ")
+//                } else {
+                    val extras = Bundle()
+                    extras.putString("collapsible", "top")
+                    adRequestBuilder.addNetworkExtrasBundle(AdMobAdapter::class.java, extras)
+
+                    Log.d("AdLoader", "Loading Collapsible Banner Ad for source2:$source ")
+//                }
+
+//            } else {
+//                Log.e(TAG, "loadHomeBannerAd: source :$source")
+//                if (source == "splash" || source == "home") {
+//                    adView.adUnitId = AdIds.AdmobInlineBannerId()
+//                } else
+//                    adView.adUnitId = AdIds.AdmobAdaptiveBannerId()
+//
+//                adView.setAdSize(getAdaptiveBannerAdSize(context, adLayout!!))
+//
+//                Log.d("AdLoader", "Loading Adaptive Banner Ad")
+//            }
+
+            val adRequest = adRequestBuilder.build()
+            adLayout.addView(adView)
+            adView.loadAd(adRequest)
+
+            adView.adListener = object : AdListener() {
+                override fun onAdLoaded() {
+                    super.onAdLoaded()
+                    adLayout.visibility = View.VISIBLE
+                    Log.d("AdLoader", "Ad Loaded Successfully")
+                    listener?.onAdLoaded()
+                }
+
+                override fun onAdFailedToLoad(p0: LoadAdError) {
+                    super.onAdFailedToLoad(p0)
+                    Log.e("AdLoader", "Ad Failed to Load: ${p0.message}")
+                    listener?.onAdFailed()
+                }
+            }
+            return adView
+        }
+
+        private fun getAdaptiveBannerAdSize(context: Context, adLayout: ViewGroup): AdSize {
             // Get the current width of the ad container layout
             val display =
                 (context.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
@@ -586,9 +654,9 @@ class AdsManager(val context: Context) {
                 NativeAdType.SMALL -> activity.resources.getDimensionPixelSize(R.dimen._100sdp)
                 NativeAdType.SMALLBANNER -> activity.resources.getDimensionPixelSize(R.dimen._80sdp)
             }
-            val layoutParams = container.layoutParams
-            layoutParams.height = height
-            container.layoutParams = layoutParams
+//            val layoutParams = container.layoutParams
+//            layoutParams.height = height
+//            container.layoutParams = layoutParams
 
             val view: View = activity.layoutInflater.inflate(layoutId, null)
             val templateView: TemplateView = view.findViewById(R.id.templateView)

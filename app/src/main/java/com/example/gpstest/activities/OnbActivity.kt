@@ -116,6 +116,7 @@ OnbActivity : BaseActivity() {
             ) || !nativeEnabled || !isEnabled
         ) {
             binding.shimmer.visibility = View.GONE
+            binding.bannerLay.visibility = View.GONE
             binding.shimmer.hideShimmer()
             binding.shimmer.stopShimmer()
             binding.shimmer.setBackgroundColor(
@@ -129,6 +130,9 @@ OnbActivity : BaseActivity() {
 //            } catch (e: Exception) {
 //                AdsManager.NativeAdType.MEDIUM
 //            }
+
+            AdsManager.loadSplashBanner(binding.bannerLay, this@OnbActivity)
+
             if (phoneSize <= 5.5) {
                 Log.e("ONB", "onCreate phoneSize if: $phoneSize")
                 AdsManager.loadNative(

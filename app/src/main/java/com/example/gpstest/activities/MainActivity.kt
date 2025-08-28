@@ -38,81 +38,83 @@ import com.mapbox.maps.plugin.locationcomponent.location
 
 class MainActivity : BaseActivity() {
     private lateinit var locationViewModel: LocationViewModel
-    private lateinit  var currentLocation: CurrentLocation
+    private lateinit var currentLocation: CurrentLocation
     private lateinit var mapboxMap: MapboxMap
     private var adView: AdView? = null
-    private var review=false
-    var navigatingFrommain=false
+    private var review = false
+    var navigatingFrommain = false
     lateinit var binding: ActivityMainBinding
     private lateinit var locationHelper: LocationPermissionHelper
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            binding=ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-            ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { v, insets ->
-                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-                insets
-            }
-            if(intent!=null)
-            {
-                review=intent.getBooleanExtra("review",false)
-            }
-            if (review)
-            {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        if (intent != null) {
+            review = intent.getBooleanExtra("review", false)
+        }
+        if (review) {
 //                showReviewDialog()
-                FirebaseCustomEvents(this).createFirebaseEvents(customevents.reviewdialog_showed, "true")
+            FirebaseCustomEvents(this).createFirebaseEvents(
+                customevents.reviewdialog_showed,
+                "true"
+            )
+            if (!Prefutils(this@MainActivity).getBool(
+                    "is_premium",
+                    false
+                ) && bannerEnabled && isEnabled
+            ) {
+                binding.adLayout.visibility = View.GONE
+            }
+            InfoUtil(this).showRatingDialog {
                 if (!Prefutils(this@MainActivity).getBool(
                         "is_premium",
                         false
                     ) && bannerEnabled && isEnabled
                 ) {
-                    binding.adLayout.visibility = View.INVISIBLE
+                    binding.adLayout.visibility = View.VISIBLE
                 }
-                InfoUtil(this).showRatingDialog{
-                    if (!Prefutils(this@MainActivity).getBool(
-                            "is_premium",
-                            false
-                        ) && bannerEnabled && isEnabled
-                    ) {
-                        binding.adLayout.visibility = View.VISIBLE
-                    }
-                }
-            }
-            InfoUtil(this).setSystemBarsColor(R.attr.primarycolor)
-            locationHelper = LocationPermissionHelper(this)
-            locationViewModel = ViewModelProvider(this)[LocationViewModel::class.java]
-            currentLocation= CurrentLocation(this,this,locationViewModel,0)
-            binding.mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS) {
-                mapboxMap = binding.mapView.getMapboxMap()
-            }
-            checkPermissions()
-            FirebaseCustomEvents(this).createFirebaseEvents(customevents.Mainactivity_open, "true")
-
-            // Initialize MapView
-           binding.more.setOnClickListener{
-                showDialogWithItems()
-            }
-     binding.icBack.clickWithDebounce {
-         finish()
-       }
-            binding.getlocation.setOnClickListener{
-                val center = Point.fromLngLat(longitude, latitude)
-                zoomMap(center)
-            }
-            binding.edField.clickWithDebounce{
-                startActivity(Intent(this, Search::class.java))
-            }
-            binding.grantpermission.setOnClickListener {
-                locationHelper.requestLocationPermission(this)
-            }
-
-            binding.enablegps.setOnClickListener {
-                locationHelper.openLocationSettings(this)
             }
         }
-//    private fun showReviewDialog() {
+        InfoUtil(this).setSystemBarsColor(R.attr.primarycolor)
+        locationHelper = LocationPermissionHelper(this)
+        locationViewModel = ViewModelProvider(this)[LocationViewModel::class.java]
+        currentLocation = CurrentLocation(this, this, locationViewModel, 0)
+        binding.mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS) {
+            mapboxMap = binding.mapView.getMapboxMap()
+        }
+        checkPermissions()
+        FirebaseCustomEvents(this).createFirebaseEvents(customevents.Mainactivity_open, "true")
+
+        // Initialize MapView
+        binding.more.setOnClickListener {
+            showDialogWithItems()
+        }
+        binding.icBack.clickWithDebounce {
+            finish()
+        }
+        binding.getlocation.setOnClickListener {
+            val center = Point.fromLngLat(longitude, latitude)
+            zoomMap(center)
+        }
+        binding.edField.clickWithDebounce {
+            startActivity(Intent(this, Search::class.java))
+        }
+        binding.grantpermission.setOnClickListener {
+            locationHelper.requestLocationPermission(this)
+        }
+
+        binding.enablegps.setOnClickListener {
+            locationHelper.openLocationSettings(this)
+        }
+    }
+
+    //    private fun showReviewDialog() {
 //        val manager = ReviewManagerFactory.create(this)
 //        val request = manager.requestReviewFlow()
 //
@@ -133,16 +135,21 @@ class MainActivity : BaseActivity() {
 //            }
 //        }
 //    }
-    private fun showAd(){
-        if (Prefutils(this@MainActivity).getBool("is_premium", false)||!bannerEnabled || !isEnabled) {
+    private fun showAd() {
+        if (Prefutils(this@MainActivity).getBool(
+                "is_premium",
+                false
+            ) || !bannerEnabled || !isEnabled
+        ) {
 
-            binding.adLayout.visibility=View.GONE
+            binding.adLayout.visibility = View.GONE
 
         } else {
 
-            binding.adLayout.visibility=View.VISIBLE
+            binding.adLayout.visibility = View.VISIBLE
             if (isInternetAvailable(this)) {
-                AdsManager.loadBannerAd(binding.adLayout,
+                AdsManager.loadBannerAd(
+                    binding.adLayout,
                     this@MainActivity,
                     object : AdsManager.AdmobBannerAdListener {
                         override fun onAdFailed() {
@@ -156,6 +163,7 @@ class MainActivity : BaseActivity() {
             }
         }
     }
+
     private fun checkPermissions() {
         when {
             !locationHelper.isLocationPermissionGranted() -> {
@@ -163,20 +171,23 @@ class MainActivity : BaseActivity() {
                 binding.settinglayout.visibility = View.GONE
                 binding.groupcontent.visibility = View.GONE
             }
+
             !locationHelper.isLocationEnabled() -> {
                 binding.permissionLayout.visibility = View.GONE
                 binding.settinglayout.visibility = View.VISIBLE
                 binding.groupcontent.visibility = View.GONE
             }
+
             else -> {
                 currentLocation.getCurrentLocation()
                 binding.permissionLayout.visibility = View.GONE
                 binding.settinglayout.visibility = View.GONE
                 binding.groupcontent.visibility = View.VISIBLE
-               // showAd()
+                showAd()
             }
         }
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
@@ -184,19 +195,20 @@ class MainActivity : BaseActivity() {
         if (requestCode == LocationPermissionHelper.LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 checkPermissions()
-            }
-            else {
+            } else {
 
                 locationHelper.openAppSettings(this)
             }
         }
     }
+
     private fun zoomMap(center: Point) {
         Log.d("TAG", "zoomMap: $center")
         Log.d("TAG", "zoomMap lat long: $longitude : $latitude")
-        binding.mapView.getMapboxMap().flyTo(cameraOptions{
-            center(center)
-            zoom(16.0)
+        binding.mapView.getMapboxMap().flyTo(
+            cameraOptions {
+                center(center)
+                zoom(16.0)
             },
             MapAnimationOptions.mapAnimationOptions { duration(6_000) }
         )
@@ -212,9 +224,16 @@ class MainActivity : BaseActivity() {
             )
         }
     }
+
     private fun showDialogWithItems() {
         // List of items to display in the dialog
-        val items = arrayOf(" Mapbox Standard", "Mapbox Streets", "Mapbox Satellite", " Mapbox Dark", " Mapbox Traffic")
+        val items = arrayOf(
+            " Mapbox Standard",
+            "Mapbox Streets",
+            "Mapbox Satellite",
+            " Mapbox Dark",
+            " Mapbox Traffic"
+        )
 
 
         // Create an AlertDialog.Builder
@@ -232,6 +251,7 @@ class MainActivity : BaseActivity() {
 
                     }
                 }
+
                 1 -> {
                     binding.mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS) {
                         mapboxMap = binding.mapView.getMapboxMap()
@@ -239,6 +259,7 @@ class MainActivity : BaseActivity() {
 
                     }
                 }
+
                 2 -> {
                     binding.mapView.getMapboxMap().loadStyleUri(Style.SATELLITE) {
                         mapboxMap = binding.mapView.getMapboxMap()
@@ -246,6 +267,7 @@ class MainActivity : BaseActivity() {
 
                     }
                 }
+
                 3 -> {
                     binding.mapView.getMapboxMap().loadStyleUri(Style.DARK) {
                         mapboxMap = binding.mapView.getMapboxMap()
@@ -253,6 +275,7 @@ class MainActivity : BaseActivity() {
 
                     }
                 }
+
                 4 -> {
                     binding.mapView.getMapboxMap().loadStyleUri(Style.TRAFFIC_DAY) {
                         mapboxMap = binding.mapView.getMapboxMap()
@@ -270,37 +293,41 @@ class MainActivity : BaseActivity() {
     override fun onResume() {
 
         super.onResume()
-        navigatingFrommain =false
+        navigatingFrommain = false
         checkPermissions()
     }
 
     @SuppressLint("Lifecycle")
     override fun onStart() {
-            super.onStart()
+        super.onStart()
         binding.mapView.onStart()
-        }
+    }
 
 
-        @SuppressLint("Lifecycle")
-        override fun onStop() {
-            super.onStop()
-            binding.mapView.onStop()
-        }
+    @SuppressLint("Lifecycle")
+    override fun onStop() {
+        super.onStop()
+        binding.mapView.onStop()
+    }
 
-        @SuppressLint("Lifecycle")
-        override fun onDestroy() {
-            super.onDestroy()
-            binding.mapView.onDestroy()
-        }
+    @SuppressLint("Lifecycle")
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.mapView.onDestroy()
+    }
+
     override fun onPause() {
         super.onPause()
-        if(!navigatingFrommain)
-        {
-            FirebaseCustomEvents(this).createFirebaseEvents(customevents.mainactivity_disappear, "true")
+        if (!navigatingFrommain) {
+            FirebaseCustomEvents(this).createFirebaseEvents(
+                customevents.mainactivity_disappear,
+                "true"
+            )
         }
     }
+
     override fun startActivity(intent: Intent?) {
         super.startActivity(intent)
         navigatingFrommain = true
     }
-    }
+}

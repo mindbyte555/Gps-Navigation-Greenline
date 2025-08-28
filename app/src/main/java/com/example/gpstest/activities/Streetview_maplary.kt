@@ -13,8 +13,15 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.gpstest.AdsManager.ActionOnAdClosedListener
+import com.example.gpstest.AdsManager.AdsManager
+import com.example.gpstest.AdsManager.AdsManager.Companion.mInterstitialAd
+import com.example.gpstest.AdsManager.InterstitialClass
+import com.example.gpstest.AdsManager.InterstitialClass.interstitialAd
+import com.example.gpstest.AdsManager.InterstitialClass.showAvailableInterstitial
 import com.example.gpstest.CurrentLocation.Companion.latitude
 import com.example.gpstest.CurrentLocation.Companion.longitude
+import com.example.gpstest.MyApp
 import com.example.gpstest.R
 import com.example.gpstest.databinding.ActivityStreetviewMaplaryBinding
 import com.example.gpstest.utls.InfoUtil
@@ -37,13 +44,60 @@ class StreetViewMaplary : BaseActivity() {
         }
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (binding.webView.canGoBack()) {
-                    binding.webView.goBack()
-                } else {
-                    finish()
-                }
+
             }
         })
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if(!MyApp.interstitialMappilaryEnabled){
+                    if (binding.webView.canGoBack()) {
+                        binding.webView.goBack()
+                    } else {
+                        finish()
+                    }
+                    return
+                }
+                if (mInterstitialAd != null) {
+                    AdsManager.showInterstitial(
+                        true, this@StreetViewMaplary, object : AdsManager.InterstitialAdListener {
+                            override fun onAdClosed() {
+                                if (binding.webView.canGoBack()) {
+                                    binding.webView.goBack()
+                                } else {
+                                    finish()
+                                }
+                            }
+                        }, "NearbyPlaces_activity_Back"
+                    )
+                } else {
+                    if (interstitialAd != null) {
+                        showAvailableInterstitial(this@StreetViewMaplary) {
+                            if (binding.webView.canGoBack()) {
+                                binding.webView.goBack()
+                            } else {
+                                finish()
+                            }
+                        }
+                    } else {
+                        InterstitialClass.requestInterstitial(this@StreetViewMaplary,
+                            this@StreetViewMaplary,
+                            "NearbyPlaces_activity_Back",
+                            object : ActionOnAdClosedListener {
+                                override fun ActionAfterAd() {
+                                    if (binding.webView.canGoBack()) {
+                                        binding.webView.goBack()
+                                    } else {
+                                        finish()
+                                    }
+                                }
+                            })
+                    }
+                }
+
+            }
+        })
+
         InfoUtil(this).setSystemBarsColor(R.attr.primarycolor)
         if (intent != null) {
             name = intent.getStringExtra("name").toString()

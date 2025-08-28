@@ -53,9 +53,13 @@ import com.example.gpstest.CurrentLocation.Companion.fullAddress
 import com.example.gpstest.CurrentLocation.Companion.latitude
 import com.example.gpstest.CurrentLocation.Companion.longitude
 import com.example.gpstest.LocationViewModel
+import com.example.gpstest.MyApp.Companion.bannerEnabled
+import com.example.gpstest.MyApp.Companion.bannerHomeEnabled
 import com.example.gpstest.MyApp.Companion.clickWithDebounce
 import com.example.gpstest.MyApp.Companion.clickWithDebounce3
 import com.example.gpstest.MyApp.Companion.formattedTemp
+import com.example.gpstest.MyApp.Companion.isEnabled
+import com.example.gpstest.MyApp.Companion.isInternetAvailable
 import com.example.gpstest.R
 import com.example.gpstest.databinding.ActivityNavigationViewBinding
 import com.example.gpstest.firebase.FirebaseCustomEvents
@@ -76,6 +80,7 @@ import com.example.gpstest.utls.Constants.time
 import com.example.gpstest.utls.Constants.timeBike
 import com.example.gpstest.utls.Constants.timeWalk
 import com.example.gpstest.utls.InfoUtil
+import com.example.gpstest.utls.Prefutils
 import com.example.gpstest.weather.WeatherService
 import com.example.gpstest.weather.WeatherViewModel
 import com.example.gpstest.weather.WeatherViewModelFactory
@@ -219,6 +224,21 @@ class NavigationView : BaseActivity(), TextToSpeech.OnInitListener {
             }
         } else {
             binding.temp.text = "${formattedTemp}°C"
+        }
+
+        val prefUtil = Prefutils(this)
+        if (prefUtil.getBool(
+                "is_premium", false
+            ) || !bannerEnabled || !isEnabled
+        ) {
+            binding.adLayout.visibility = View.GONE
+        } else {
+            if (isInternetAvailable(this)) {
+                AdsManager.loadHomeCollapsible(
+                    binding.adLayout,
+                    this@NavigationView
+                )
+            }
         }
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {

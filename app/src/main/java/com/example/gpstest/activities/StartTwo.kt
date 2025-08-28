@@ -219,20 +219,32 @@ class StartTwo : BaseActivity() {
             ) || !bannerEnabled || !isEnabled || !bannerHomeEnabled
         ) {
             binding.adLayout.visibility = View.GONE
+            binding.shimmer.visibility = View.GONE
         } else {
             if (isInternetAvailable(this)) {
-                AdsManager.loadBannerAd(
+                AdsManager.loadHomeCollapsible(
                     binding.adLayout,
+                    this@StartTwo)?.let { adView = it }
+
+                AdsManager.loadNative(
+                    binding.nativeAd,
                     this@StartTwo,
                     object : AdsManager.AdmobBannerAdListener {
-                        override fun onAdFailed() {
-                            Log.e("TEST TAG", "onAdFailed: Home Banner")
+                        override fun onAdLoaded() {
+                            Log.e("TAG", "onAdLoaded: ", )
+                            binding.shimmer.hideShimmer()
+                            binding.shimmer.stopShimmer()
+                            binding.shimmer.setBackgroundResource(R.color.white)
                         }
 
-                        override fun onAdLoaded() {
-                            Log.e("TEST TAG", "onAdLoaded: Home Banner")
+                        override fun onAdFailed() {
+                            Log.e("TAG", "onAdFailed: ", )
+                            binding.shimmer.hideShimmer()
+                            binding.shimmer.stopShimmer()
+                            binding.shimmer.setBackgroundResource(R.drawable.rounded_with_gray_light)
+                            binding.shimmer.visibility = View.GONE
                         }
-                    })?.let { adView = it }
+                    }, AdsManager.NativeAdType.MEDIUM)
             }
         }
 // getting location
@@ -901,18 +913,45 @@ class StartTwo : BaseActivity() {
 //            }, 200)
             FirebaseCustomEvents(this).createFirebaseEvents(my_loc_btn_clicked, "true")
         }
+
         binding.nearBy.clickWithDebounce {
             FirebaseCustomEvents(this).createFirebaseEvents(near_by_btn_clicked, "true")
-            binding.nearBy.animate().scaleX(0.9f).scaleY(0.9f).setDuration(100).withEndAction {
-                binding.nearBy.animate().scaleX(1f).scaleY(1f).duration = 100
-            }
-            Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(
-                    Intent(
-                        this@StartTwo, NearByplacesActivity::class.java
-                    )
+
+            if (mInterstitialAd != null) {
+                AdsManager.showInterstitial(
+                    true, this@StartTwo, object : AdsManager.InterstitialAdListener {
+                        override fun onAdClosed() {
+                            startActivity(
+                                Intent(
+                                    this@StartTwo, NearByplacesActivity::class.java
+                                )
+                            )
+                        }
+                    }, "NearbyPlaces_activity"
                 )
-            }, 200)
+            } else {
+                if (interstitialAd != null) {
+                    showAvailableInterstitial(this) {
+                        startActivity(Intent(this@StartTwo, MyLoc::class.java))
+                    }
+                } else {
+                    InterstitialClass.requestInterstitial(this@StartTwo,
+                        this@StartTwo,
+                        "NearbyPlaces_activity",
+                        object : ActionOnAdClosedListener {
+                            override fun ActionAfterAd() {
+                                startActivity(
+                                    Intent(
+                                        this@StartTwo, NearByplacesActivity::class.java
+                                    )
+                                )
+                            }
+                        })
+                }
+            }
+
+//            }, 200)
+            FirebaseCustomEvents(this).createFirebaseEvents(near_by_btn_clicked, "true")
         }
 
     }

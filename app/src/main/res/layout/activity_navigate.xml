@@ -7,6 +7,21 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".activities.Navigate">
+
+
+    <RelativeLayout
+        android:id="@+id/adLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="#EBEBEB"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.mapbox.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="0dp"
@@ -17,15 +32,18 @@
         app:layout_constraintTop_toBottomOf="@+id/actionBar">
 
     </com.mapbox.maps.MapView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/actionBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
-        android:gravity="center"
         android:background="@color/white"
+        android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="@dimen/_12sdp"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adLayout">
 
         <ImageView
             android:id="@+id/icBack"
@@ -44,11 +62,11 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/route_finder"
-            android:visibility="visible"
-            android:textColor="@color/black"
             android:fontFamily="@font/lato_bold"
+            android:text="@string/route_finder"
+            android:textColor="@color/black"
             android:textSize="@dimen/_16sdp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

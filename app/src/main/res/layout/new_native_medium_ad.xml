@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!--<merge xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
-
+<?xml version="1.0" encoding="UTF-8"?>
 <com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,8 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background_green">
-
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/background"
@@ -192,9 +188,9 @@
 
         <com.google.android.gms.ads.nativead.MediaView
             android:id="@+id/media_view"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_height="@dimen/_128sdp"
+            android:layout_height="125dp"
             app:layout_constraintDimensionRatio="W,16:9"
             android:layout_marginBottom="@dimen/_5sdp"
             app:layout_constraintBottom_toTopOf="@+id/cta"
@@ -207,7 +203,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cta"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_marginHorizontal="@dimen/_5sdp"
             android:background="@drawable/adbtn"
             android:layout_marginBottom="@dimen/_5sdp"
